@@ -1,0 +1,20 @@
+{% block content %}
+
+
+<style type="text/css">
+body{
+
+   background-color:#333333;
+    color: #fff;
+    padding: 30px 0 0 30px;
+
+}
+  </style>
+    <form action="{% url 'ulib:register' %}" method = "POST">
+
+<input type="text" required placeholder="login"><br>
+<input type="text" required placeholder="password"><br>
+<button type="submin">Sign up</button>
+
+    </form>
+{% endblock %}

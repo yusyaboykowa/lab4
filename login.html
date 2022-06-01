@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+<style type="text/css">
+    .but{
+        width: 100px;
+        height: 50px;
+        margin: -20px 0 15px 1618px;
+        border-radius:10px;
+        background-color:mediumaquamarine;
+
+    }
+
+    .alerts{
+        width: 500px;
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        margin:0 auto;
+        font-size: 30px;
+    }
+    .alerts a {
+        color: #ffffff;
+        text-decoration:none;
+    }
+.alerts a:hover{color:orange}
+    body{
+    padding: 30px 0 0 0px;
+        background-color:#333333;
+        color: #ffffff;
+}
+.menu_column{
+    width: 1500px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    background:#blue;
+    height: 150px;
+    border-top: 4px solid #fff;
+    padding:50px 0 0 0;
+}
+  </style>
+
+    <div class="container">
+        <div class="card center spacer">
+            <h1 class="title text-center">Login With</h1>
+            <form method = "POST" action="." class="login-form spacer">
+                {% csrf_token %}
+                <div class="input-group">
+                    <img class="icon input-icon" src="icons/envelope.png" alt="">
+                    <input type="email" class="form-input" name="username" placeholder="johndoe@mail.com">
+                </div>
+                <div class="input-group">
+                    <img class="icon input-icon" src="icons/key.svg" alt="">
+                    <input type="password" name="password" class="form-input" placeholder="password">
+                </div>
+                <button type="submit" class="submit" >Login</button>
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <div class="redirect">
+        Don't have an account?&nbsp;<a href="/signup" class="link">Signup</a>
+    </div>
+
+
+</body>
+</html>
+

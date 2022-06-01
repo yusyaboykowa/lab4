@@ -1,0 +1,76 @@
+{% block title %}{% endblock %}
+<h2>Main Page</h2>
+
+<a class="w-10 btn btn-lg btn-primary"  href="signup/">Sign up</a> | <a class="w-10 btn btn-lg btn-primary"  href="login/">Sign in</a>
+
+<div class="alerts alert-info">
+    {% if user.is_authenticated %}
+  <p>{{ user.username }}</p>
+{% else %}
+  <p>Dont have account? Pastate Sign up</p>
+{% endif %}
+</div>
+
+{% block content %}
+<div class="menu_column">
+
+
+<style type="text/css">
+    .but{
+        width: 100px;
+        height: 50px;
+        margin: -20px 0 15px 1618px;
+        border-radius:10px;
+        background-color:mediumaquamarine;
+
+    }
+
+    .alerts{
+        width: 500px;
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        margin:0 auto;
+        font-size: 30px;
+    }
+    .alerts a {
+        color: #ffffff;
+        text-decoration:none;
+    }
+.alerts a:hover{color:orange}
+    body{
+    padding: 30px 0 0 0px;
+        background-color:#333333;
+        color: #ffffff;
+}
+.menu_column{
+    width: 1500px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    background:#blue;
+    height: 150px;
+    border-top: 4px solid #fff;
+    padding:50px 0 0 0;
+}
+  </style>
+
+<div class="alerts alert-info">
+
+
+    {% if latest_books_list %}
+
+        {% for a in latest_books_list %}
+            <a href="{% url 'ulib:detail' a.id %}">{{ a.books_name }}</a>
+        {% endfor %}
+
+    {% else %}
+        Nothing :(
+    {% endif %}
+</div>
+
+
+</div>
+
+{% endblock %}

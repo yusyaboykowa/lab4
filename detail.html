@@ -1,0 +1,49 @@
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+    <style type="text/css">
+    body{
+    padding: 30px 0 0 0px;
+        background-color:#333333;
+        color: #ffffff;
+}
+
+  </style>
+
+
+    <h2>{{ book.books_name }}</h2>
+    <p>{{ book.books_author }}</p>
+    <p>{{ book.books_year }}</p>
+    <p>{{ book.books_edition }}</p>
+    <p>{{ book.books_exposition }}</p>
+
+    <hr>
+
+    {% if latest_comments_list %}
+
+        {% for c in latest_comments_list %}
+            <p>
+            <strong>{{ c.comment_name }}</strong>
+            <p>{{ c.comment_text }}</p>
+            </p>
+        {% endfor %}
+
+    {% else %}
+    Not comments! You can be first
+    {% endif %}
+
+    <hr>
+
+    <form action="{% url 'ulib:leave_comment' book.id%}" method = "POST">
+
+        {% csrf_token %}
+
+        <input type="text" required placeholder="Your Name" name="name"><br>
+        <textarea name="text" required="" placeholder="Text comment" cols="30" rows="10"></textarea><br>
+        <button type="submin">Add comment</button>
+
+    </form>
+
+{% endblock %}
